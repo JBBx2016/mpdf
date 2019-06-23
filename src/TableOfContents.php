@@ -488,7 +488,11 @@ class TableOfContents
 				}
 			}
 			$html .= '</div>';
+
+			$this->mpdf->SetColumns(2, 'J', 50);
+			$this->mpdf->keepColumns = true;
 			$this->mpdf->WriteHTML($html);
+			$this->mpdf->SetColumns(0);
 
 			if (isset($toc_postHTML) && $toc_postHTML) {
 				$this->mpdf->WriteHTML($toc_postHTML);
